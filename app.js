@@ -15,6 +15,10 @@ const upload = multer({
     storage : storage
 }).single('myFile');
 
+const uploadMulti = multer({
+    storage : storage
+}).array('myFile',3);
+
 app.set('views', path.join(__dirname, 'View'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'Public')));
@@ -22,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'Public')));
 app.get('/', (request, response)=>{
     response.render('index');
 });
-let str = '';
+
 app.post('/upload', (request, response) =>{
     upload(request, response, (err) =>{
         if(err){
@@ -35,7 +39,18 @@ app.post('/upload', (request, response) =>{
     })
 });
 
+app.post('/uploadMulti', (request, response) =>{
+    uploadMulti(request, response, (err) =>{
+        if(err){
+            console.log("error occured .....");
+        }
+        else{
+            console.log(request.files);
+        }
+    })
+});
 
-app.listen(3000, ()=>{
+
+app.listen(3000, ()=>{  
     console.log("server is running .......");
 })

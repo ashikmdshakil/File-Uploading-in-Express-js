@@ -11,8 +11,8 @@
   <div class="row">
     <div class="col-12">
     
-    
-            <div class="row" style = "margin-top: 200px;">
+    <h1 style = "align-content: center">Single file</h1>
+            <div class="row">
                 <div class = "col-3">
                 </div>
                 <div class = "col-8">
@@ -25,16 +25,25 @@
                           <div class="file-path-wrapper">
                             <button type="submit" class="btn btn-secondary">Upload</button>
                           </form>
-                          </div>
-                        </div>
-                        
-                      
-                </div>
+                          </div>             
                 <div class="col-1">
                 </div>
             </div>
-      
-      
+    <h1 style = "align-content: center">Multiple file</h1>
+    <div class="row">
+      <div class = "col-3">
+      </div>
+      <div class = "col-8">
+          <form action="/uploadMulti" method="POST" class="md-form" enctype="multipart/form-data">
+              
+                  <input type="file" name = "myFile" multiple>
+                  <button type="submit" class="btn btn-secondary">Upload</button>
+               
+                </div>             
+      <div class="col-1">
+      </div>
+  </div>
+            
         </div>
     </div>
 </div>
